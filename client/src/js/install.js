@@ -4,8 +4,8 @@ const butInstall = document.getElementById('buttonInstall');
 // TODO: Add an event handler to the `beforeinstallprompt` event
 // code sourced from NU Module 19.28 miniproject
 window.addEventListener('beforeinstallprompt', (event) => {
-console.log('hello')
-console.log("hello again" + event)
+// console.log('hello')
+// console.log("hello again" + event)
 event.preventDefault();
 // store the triggered event
 window.deferredPrompt = event;
@@ -23,6 +23,8 @@ butInstall.addEventListener('click', async () => {
 // show prompt
 promptEvent.prompt();
 // Reset the deferred prompt variable, it can only be used once.
+window.deferredPrompt = null;
+
  butInstall.classList.toggle('hidden', true);
 });
 

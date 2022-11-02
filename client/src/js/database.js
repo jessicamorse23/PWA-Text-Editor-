@@ -14,7 +14,8 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 // source for code NU Module 19 - mini project database.js
-export const putDb = async (content) => { console.error('putDb not implemented');
+export const putDb = async (content) => { 
+  console.log('jate database');
 
  // Create a connection to the database database and version we want to use.
 const contactDb = await openDB('jate', 1);
@@ -35,7 +36,8 @@ console.log('🚀 - data saved to the database', result);
 ;
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented'); {
+export const getDb = async () => {
+console.log('getDb'); 
 
 // Create a connection to the database database and version we want to use.
 const contactDb = await openDB('jate', 1);
@@ -47,12 +49,12 @@ const tx = contactDb.transaction('jate', 'readonly');
 const store = tx.objectStore('jate');
 
 // Use the .getAll() method to get all data in the database.
-const request = store.getAll();
+const request = store.get(1);
 
 // Get confirmation of the request.
 const result = await request;
 console.log('result.value', result);
-// return result?.value;
+return result.value;
 };
 
 initdb();
